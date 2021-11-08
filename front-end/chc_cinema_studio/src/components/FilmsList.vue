@@ -20,7 +20,7 @@ export default {
     },
     async mounted() {
         this.isLoading = true;
-        let response = await axios.get("http://localhost:8000/api/movies");
+        let response = await axios.get("http://localhost:8000/api/films");
         this.films = response.data;
         this.isLoading = false;
     },

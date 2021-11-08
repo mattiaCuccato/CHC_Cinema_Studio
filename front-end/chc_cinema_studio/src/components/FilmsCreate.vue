@@ -104,10 +104,10 @@ export default {
       isEdit: false,
       newFilm: {
         title: "",
-        director: "",
-        cast: "",
-        year: 0,
-        genre: "",
+        /*director: "",
+        cast: "",*/
+        year: 2000,
+        /*genre: "",*/
         running_time: "",
         plot: "",
         rating: "",
@@ -122,7 +122,7 @@ export default {
           placeholder:"Inserisci il titolo",
           required: true,
         },
-        {
+        /*{
           code: "director",
           label: "Regista",
           type: "text",
@@ -135,7 +135,7 @@ export default {
           type: "text",
           placeholder:"Inserisci il nome e cognome dei principali attori",
           required: true,
-        },
+        },*/
         {
           code: "year",
           label: "Anno",
@@ -143,13 +143,13 @@ export default {
           placeholder:"Inserisci l'anno di uscita del film",
           required: true,
         },
-        {
+        /*{
           code: "genre",
           label: "Genere",
           type: "text",
           placeholder:"Inserisci il genere",
           required: true,
-        },
+        },*/
         {
           code: "running_time",
           label: "Durata",
