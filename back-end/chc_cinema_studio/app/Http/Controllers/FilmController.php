@@ -22,4 +22,9 @@ class FilmController extends Controller
         $newFilm->save();
         return $newFilm;
     }
+
+    public function view_film(){
+        $allFilm = new Film();
+        return $allFilm->all();
+    }
 }

@@ -24,5 +24,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post("/film/create",[FilmController::class,"create_film"]);
+Route::get("/films",[FilmController::class,"view_film"]);
 Route::post('/room/create', [RoomController::class,"insert_room"]);
 
