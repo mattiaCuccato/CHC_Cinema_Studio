@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RoomController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FilmController;
@@ -15,4 +16,13 @@ use App\Http\Controllers\FilmController;
 |
 */
 
+
+
+
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
 Route::post("/film/create",[FilmController::class,"create_film"]);
+Route::post('/rooms/create', [RoomController::class,"insert_room"]);
+
