@@ -1,0 +1,66 @@
+Git sistema per collaborare via codice / Condivisione
+
+
+mkdir < cartella >
+controllare git usando git -v
+
+git init . 
+inizializza un repository di git 
+
+touch < file.txt >
+crea un file
+
+git status
+controlla la differenza dei file tra i file aggiunti in locale e
+in github
+
+git add < file.txt >
+Aggiunge il file allo "stage"
+
+git commit
+Apre editor
+
+git commit -m "< azione/(Repo init per convenzione) >"
+crea il file e lo salva su github
+
+git rm --cache < file.txt >
+Toglie il file allo "stage"
+
+echo "Testo" >> ( > cancella tutto il contenuto. >> aggiunge in fondo) < file.txt >
+
+git checkout -- < file.txt >
+
+git log
+stampa tutti i commit successi e da chi (più recente)
+
+git log --oneline
+stampa tutti i commit successi e da chi in una sola riga
+
+git log --all --oneline
+stampa tutti i commit successi, da chi e da tutti i branch
+
+git branch < nome branch >
+crea un branch
+
+git branch
+fa vedere i branch
+
+git branch -d < nome branch >
+elimina il branch
+
+git checkout < nome branch >
+scambi branch 
+
+git merge
+unisci un branch a quello attuale
+
+git remote add origin git@github.com:< nickname/cartella >
+git push -u origin master
+
+git clone < link repository > < cartella repository >
+
+git pull
+recupera tutti i file e cambiamenti da altri branch
+
+git pull <https> <branch>
+se git pull non funziona
