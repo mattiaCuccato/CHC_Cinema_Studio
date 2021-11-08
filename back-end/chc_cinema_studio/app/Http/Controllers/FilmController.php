@@ -18,5 +18,8 @@ class FilmController extends Controller
         $newFilm -> year = $newFilmData -> year;
         $newFilm -> plot = $newFilmData -> plot;
         $newFilm -> rating = $newFilmData -> rating;
+
+        $newFilm->save();
+        return $newFilm;
     }
 }
