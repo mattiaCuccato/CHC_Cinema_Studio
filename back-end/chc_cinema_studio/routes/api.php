@@ -29,3 +29,6 @@ Route::get("/films",[FilmController::class,"view_film"]);
 Route::post('/room/create', [RoomController::class,"insert_room"]);
 Route::get("/rooms",[RoomController::class,"view_room"]);
 
+Route::post("/projection/create",[ProjectionController::class,"create_projection"]);
+Route::get("/projections",[ProjectionController::class,"view_projections"]);
+
