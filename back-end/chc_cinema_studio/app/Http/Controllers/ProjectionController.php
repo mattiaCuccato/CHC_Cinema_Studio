@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Film;
 use App\Models\Projection;
 use Illuminate\Http\Request;
 
@@ -20,8 +21,4 @@ class ProjectionController extends Controller
         return $newProjection;
     }
 
-    public function view_projections($id){
-        $FilmProjections = Projection::all();
-        return $FilmProjection = $FilmProjections->find($id);
-    }
 }
