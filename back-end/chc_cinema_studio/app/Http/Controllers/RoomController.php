@@ -19,4 +19,9 @@ class RoomController extends Controller
         $room->save();
         return $room;
     }
+
+    public function view_room(){
+        $allRoom = new Room();
+        return $allRoom->all();
+    }
 }
