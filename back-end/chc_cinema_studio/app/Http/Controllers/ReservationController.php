@@ -12,7 +12,8 @@ class ReservationController extends Controller
         $newReservationData = json_decode($request->getContent());
 
         $newReservation = new Reservation();
-        
+        $newReservation->email = $newReservationData->email;
+        $newReservation->projection_id = $newReservationData->projection_id;
 
         $newReservation->save();
         return $newReservation;
