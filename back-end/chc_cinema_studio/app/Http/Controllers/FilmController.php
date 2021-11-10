@@ -27,4 +27,9 @@ class FilmController extends Controller
         $allFilm = new Film();
         return $allFilm->all();
     }
+
+    public function film_detail($id){
+        $film = Film::find($id);
+        return $film;
+    }
 }
