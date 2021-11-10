@@ -33,7 +33,4 @@ Route::post('/room/create', [RoomController::class,"insert_room"]);
 Route::get("/rooms",[RoomController::class,"view_room"]);
 
 Route::post("/projection/create",[ProjectionController::class,"create_projection"]);
-Route::get("/film/projections/{id}",[ProjectionController::class,"view_projections"]);
-
-Route::post("/reservation/create",[ReservationController::class,"insert_reservation"]);
-
+Route::get("/film/projections/{film_id}",[ProjectionController::class,"view_projections"]);
