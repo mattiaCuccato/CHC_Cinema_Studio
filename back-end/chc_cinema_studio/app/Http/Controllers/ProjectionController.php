@@ -20,8 +20,8 @@ class ProjectionController extends Controller
         return $newProjection;
     }
 
-    public function view_projections($id){
-        $FilmProjections = Projection::all();
-        return $FilmProjection = $FilmProjections->find($id);
+    public function view_projections($film_id){
+        $allProjections = Projection::all();
+        return $allProjections->where("film_id", $film_id);
     }
 }
