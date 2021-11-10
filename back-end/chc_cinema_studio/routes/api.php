@@ -33,3 +33,6 @@ Route::get("/rooms",[RoomController::class,"view_room"]);
 
 Route::post("/reservation",[ReservationController::class,"insert_reservation"]);
 
+Route::post("/projection/create",[ProjectionController::class,"create_projection"]);
+Route::get("/projections",[ProjectionController::class,"view_projections"]);
+
