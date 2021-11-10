@@ -4,6 +4,7 @@ use App\Http\Controllers\RoomController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FilmController;
+use App\Http\Controllers\ProjectionController;
 use App\Http\Controllers\ReservationController;
 
 /*
