@@ -20,4 +20,8 @@ class Film extends Model
     public function genres(){
         return $this->belongsToMany(Genre::class);
     }
+
+    public function projections(){
+        return $this->hasMany(Projection::class);
+    }
 }

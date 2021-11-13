@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Film;
 use App\Models\Projection;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class ProjectionController extends Controller
@@ -21,8 +22,12 @@ class ProjectionController extends Controller
         return $newProjection;
     }
 
-    public function view_projections($film_id){
+    /*public function view_projections($film_id){
         $allProjections = Projection::all();
         return $allProjections->where("film_id", $film_id);
+    }*/
+
+    public function view_projections(){
+        return Film::with(["projections", "projections.room"])->get();
     }
 }
