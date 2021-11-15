@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\ProjectionController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\TicketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,8 @@ Route::get("/rooms",[RoomController::class,"view_room"]);
 
 Route::post("/projection/create",[ProjectionController::class,"create_projection"]);
 Route::get("/film/projections",[ProjectionController::class,"view_projections"]);
+
+Route::post('/reservation/create', [ReservationController::class,"insert_reservation"]); //api appena fatto!!!!!!!!
+Route::get("/reservations",[ReservationController::class,"view_reservation"]); //riepilogo
+
+//Route::post('/ticket/create', [TicketController::class,"insert_ticket"]);
