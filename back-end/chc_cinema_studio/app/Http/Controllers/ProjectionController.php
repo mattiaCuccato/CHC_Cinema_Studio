@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Film;
 use App\Models\Projection;
-use App\Models\Room;
 use Illuminate\Http\Request;
 
 class ProjectionController extends Controller
@@ -26,8 +25,8 @@ class ProjectionController extends Controller
         $newProjectionData = json_decode($request->getContent());
         $newProjection = new Projection();
 
-        $newProjection-> film_id = $film_id;
-        $newProjection-> room_id = $room_id;
+        $newProjection-> film_id = $newProjectionData->film_id;
+        $newProjection-> room_id = $newProjectionData->room_id;
         $newProjection-> date = $newProjectionData->date;
 
         $newProjection->save();
