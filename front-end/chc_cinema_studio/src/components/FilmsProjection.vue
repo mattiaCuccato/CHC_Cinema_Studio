@@ -15,7 +15,7 @@
         <label>Nome</label>
         <input
           type="text"
-          v-model="newReservation.name"
+          v-model="newReservation.name_user"
           placeholder="inserisci nome"
           class="text-black"
         />
@@ -24,7 +24,7 @@
         <label>Cognome</label>
         <input
           type="text"
-          v-model="newReservation.surname"
+          v-model="newReservation.surname_user"
           placeholder="inserisci cognome"
           class="text-black"
         />
@@ -84,8 +84,9 @@ export default {
       occupiedCodes: [],
       projection: null,
       newReservation: {
-        name: "",
-        surname: "",
+        projection_id: 0,
+        name_user: "",
+        surname_user: "",
         email: "",
         tickets: [],
       },
@@ -95,7 +96,7 @@ export default {
     let projectionId = this.$route.params.id;
 
     let responseProjection = await axios.get(
-      "http://localhost:3001/projections/" + projectionId
+      "http://localhost:8000/api/projection/" + projectionId
     );
 
     this.projection = responseProjection.data;
@@ -140,9 +141,11 @@ export default {
       }
     },
     async saveReservation() {
+      let projectionId = this.$route.params.id;
       let responseReservation;
+      this.newReservation.projection_id = projectionId;
       responseReservation = await axios.post(
-        "http://localhost:3001/reservations",
+        "http://localhost:8000/api/reservation/create",
         this.newReservation
       );
 

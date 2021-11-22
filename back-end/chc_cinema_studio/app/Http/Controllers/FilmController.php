@@ -7,29 +7,33 @@ use App\Models\Film;
 
 class FilmController extends Controller
 {
-    public function create_film(Request $request) {
+    public function create_film(Request $request)
+    {
         $newFilmData = json_decode($request->getContent());
 
         $newFilm = new Film();
-        $newFilm -> title = $newFilmData -> title;
-        $newFilm -> poster = $newFilmData -> poster;
-        $newFilm -> image = $newFilmData -> image;
-        $newFilm -> duration = $newFilmData -> duration;
-        $newFilm -> year = $newFilmData -> year;
-        $newFilm -> plot = $newFilmData -> plot;
-        $newFilm -> rating = $newFilmData -> rating;
+        $newFilm->title = $newFilmData->title;
+        $newFilm->poster = $newFilmData->poster;
+        $newFilm->image = $newFilmData->image;
+        $newFilm->duration = $newFilmData->duration;
+        $newFilm->year = $newFilmData->year;
+        $newFilm->plot = $newFilmData->plot;
+        $newFilm->rating = $newFilmData->rating;
 
         $newFilm->save();
         return $newFilm;
     }
 
-    public function view_film(){
+    public function view_film()
+    {
         $allFilm = new Film();
         return $allFilm->all();
     }
 
-    public function film_detail($id){
-        $film = Film::find($id);
-        return $film;
+    public function film_detail($id)
+    {
+        return Film::with(["projections", "projections.room"])->where('id', $id)->first();
+        /*$film = Film::find($id);
+        return $film;*/
     }
 }
