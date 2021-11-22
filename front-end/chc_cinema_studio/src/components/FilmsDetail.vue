@@ -18,7 +18,7 @@
     </div>
 
     <div class="flex justify-center m-10">
-      <div v-for="(projection, index) in film.projection" :key="index">
+      <div v-for="(projection, index) in film.projections" :key="index">
         <div
           class="
             flex flex-col
@@ -60,21 +60,14 @@ export default {
     };
   },
   async mounted() {
-    let filmId = this.$route.params.id;
-    let responseFilm = await axios.get("http://localhost:3001/films/" + filmId);
+    /*let filmId = this.$route.params.id;
+    let responseFilm = await axios.get("http://localhost:3001/films/" + filmId);*/
 
-    /*   let filmId = this.$route.params.id;
-    let responseFilm = await axios.get("http://localhost:8000/api/film/detail/" + filmId);*/
+    let filmId = this.$route.params.id;
+    let responseFilm = await axios.get("http://localhost:8000/api/film/detail/" + filmId);
 
     this.film = responseFilm.data;
 
-    let responseProjection = await axios.get(
-      "http://localhost:8000/api/film/projections/" + filmId
-    );
-    this.projections = responseProjection.data;
-
-    let responseRoom = await axios.get("http://localhost:8000/api/rooms");
-    this.rooms = responseRoom.data;
   },
   methods: {
     goToProjection(projection) {
