@@ -31,17 +31,14 @@ class ReservationController extends Controller
             $newTicket->reservation_id = $newReservation->id;
             $newTicket->save();
         }
-
-
-        /*$newTicket = new Ticket();
-        $newTicket->reservation_id = $newReservation->id;
-        $newTicket->row = $data->row;
-        $newTicket->col = $data->col;
-        $newTicket->save();*/
         return Reservation::with(["tickets"])->get();
     }
 
-    public function view_reservation(){
+    public function view_allReservation(){
         return Reservation::with(["tickets", "projection.film", "projection.room"])->get();
+    }
+
+    public function view_reservation_byId($id){
+        return Reservation::with(["tickets", "projection.film", "projection.room"])->where("id", $id)->get();
     }
 }

@@ -33,10 +33,11 @@ Route::get("/film/detail/{id}",[FilmController::class,"film_detail"]);
 Route::post('/room/create', [RoomController::class,"insert_room"]);
 Route::get("/rooms",[RoomController::class,"view_room"]);
 
-Route::post("/projection/create",[ProjectionController::class,"create_projection"]);
+//Route::post("/projection/create",[ProjectionController::class,"create_projection"]);
+Route::post("/projection/create/{film_id}/{room_id}",[ProjectionController::class,"create_projection"]);
 Route::get("/film/projections",[ProjectionController::class,"view_projections"]);
+Route::get("/projection/{id}",[ProjectionController::class,"view_tickets_projection"]);
 
-Route::post('/reservation/create', [ReservationController::class,"insert_reservation"]); //api appena fatto!!!!!!!!
-Route::get("/reservations",[ReservationController::class,"view_reservation"]); //riepilogo
-
-//Route::post('/ticket/create', [TicketController::class,"insert_ticket"]);
+Route::post('/reservation/create', [ReservationController::class,"insert_reservation"]);
+Route::get("/reservations",[ReservationController::class,"view_allReservation"]);
+Route::get("/reservation/{id}",[ReservationController::class,"view_reservation_byId"]);
