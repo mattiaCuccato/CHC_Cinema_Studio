@@ -1,0 +1,188 @@
+{
+  "films": [
+    {
+      "id": 1,
+      "title": "Fight Club",
+      "year": 1999,
+      "duration": 149,
+      "plot": "Tyler Durden ed un nuovo amico sfogano la loro aggressività creando un club di combattimento, che assume rapidamente connotati rivoluzionari, fino a esporre la vera identità di Tyler Durden.",
+      "rating": "VM14",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMmEzNTkxYjQtZTc0MC00YTVjLTg5ZTEtZWMwOWVlYzY0NWIwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+      "img": "https://images.everyeye.it/img-articoli/fight-club-dialogo-bar-due-protagonisti-cult-tempo-v17-44593.jpg",
+      "projection": [
+        {
+          "id": 1,
+          "date": "20.45 22/09/21",
+          "room": {
+            "name": "Gialla"
+          }
+        },
+        {
+          "id": 2,
+          "date": "21.00 23/09/21",
+          "room": {
+            "name": "Rossa"
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Django Unchained",
+      "year": 2012,
+      "duration": 165,
+      "plot": "1858, da qualche parte nel Texas. Django, uno schiavo nero di proprietà dei fratelli Speck, viene rintracciato dal dottor King Schultz, un cacciatore di taglie originario della Germania e che fino a cinque anni prima lavorava come dentista. Schultz cerca di acquistare Django ma i fratelli Speck, Dicky e Ace, due mercanti di schiavi, non si dimostrano propensi alla cessione e gli intimano di andarsene: ne segue uno scontro a fuoco, durante il quale uno dei due fratelli, Ace, viene ucciso, mentre l'altro viene costretto a cedere lo schiavo, dopo essere stato ferito gravemente, firmando l'atto di vendita, per poi venire ucciso definitivamente dagli altri schiavi, appena liberati dal dottor Schultz, che si sono ribellati. Il dottore ha bisogno dell'aiuto di Django per riconoscere i fratelli Brittle, dei fuorilegge che sta cercando, garantendo in cambio allo schiavo la libertà e una percentuale sulla taglia.",
+      "rating": "VM14",
+      "poster": "https://m.media-amazon.com/images/I/51dNfU53lNL._AC_SY450_.jpg",
+      "img": "https://upload.wikimedia.org/wikipedia/it/thumb/b/b5/Django_Foxx.png/260px-Django_Foxx.png"
+    },
+    {
+      "title": "Apocalypse Now",
+      "year": 1979,
+      "duration": "163",
+      "plot": "Orrore",
+      "rating": "VM14",
+      "poster": "https://m.media-amazon.com/images/I/A1fRVv87JrL._SY445_.jpg",
+      "img": "https://img2.liberoquotidiano.it/images/2020/12/15/142547352-00c7d81a-041d-47df-b4b2-9e6e8ba66db4.jpg",
+      "id": 3
+    }
+  ],
+  "projections": [
+    {
+      "id": 1,
+      "date": "15.00 22/09/21",
+      "room": {
+        "name": "Gialla",
+        "rows": 7,
+        "cols": 8
+      },
+      "tickets": [
+        {
+          "code": "A1",
+          "row": 1,
+          "col": 1
+        },
+        {
+          "code": "D5",
+          "row": 4,
+          "col": 5
+        },
+        {
+          "code": "G8",
+          "row": 7,
+          "col": 8
+        }
+      ],
+      "film": {
+        "title": "Fight Club",
+        "year": 1999
+      }
+    }
+  ],
+  "reservations": [
+    {
+      "name": "lorenzo",
+      "surname": "caccia",
+      "email": "lc.com",
+      "tickets": [
+        {
+          "code": "A1",
+          "row": 1,
+          "col": 1
+        },
+        {
+          "code": "D5",
+          "row": 4,
+          "col": 5
+        },
+        {
+          "code": "G8",
+          "row": 7,
+          "col": 8
+        }
+      ],
+      "id": 3
+    },
+    {
+      "name": "",
+      "surname": "",
+      "email": "",
+      "tickets": [
+        {
+          "row": 1,
+          "col": 2
+        },
+        {
+          "row": 1,
+          "col": 3
+        },
+        {
+          "row": 1,
+          "col": 4
+        },
+        {
+          "row": 1,
+          "col": 5
+        }
+      ],
+      "id": 4
+    },
+    {
+      "name": "",
+      "surname": "",
+      "email": "",
+      "tickets": [
+        {
+          "row": 1,
+          "col": 2
+        },
+        {
+          "row": 1,
+          "col": 3
+        }
+      ],
+      "id": 5
+    },
+    {
+      "name": "",
+      "surname": "",
+      "email": "",
+      "tickets": [
+        {
+          "row": 1,
+          "col": 2
+        },
+        {
+          "row": 1,
+          "col": 3
+        }
+      ],
+      "id": 6
+    },
+    {
+      "name": "",
+      "surname": "",
+      "email": "",
+      "tickets": [
+        {
+          "row": 1,
+          "col": 2
+        },
+        {
+          "row": 1,
+          "col": 3
+        },
+        {
+          "row": 1,
+          "col": 4
+        }
+      ],
+      "id": 7
+    }
+  ],
+  "codes": [
+    11,
+    13,
+    78
+  ]
+}

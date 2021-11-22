@@ -5,7 +5,7 @@ import VueRouter from 'vue-router';
 import FilmsList from '@/components/FilmsList.vue';
 import FilmsDetail from '@/components/FilmsDetail.vue';
 import FilmsCreate from '@/components/FilmsCreate.vue';
-import FilmsRoom from '@/components/FilmsRoom.vue';
+import FilmsProjection from '@/components/FilmsProjection.vue';
 
 
 Vue.config.productionTip = false
@@ -29,9 +29,9 @@ const routes = [
     component: FilmsCreate,
   },
   {
-    path: '/films/room',
-    name: "films_room",
-    component: FilmsRoom,
+    path: '/films/projection/:id',
+    name: "films_projection",
+    component: FilmsProjection,
   },
   
   {

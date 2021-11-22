@@ -19,8 +19,13 @@ export default {
         }
     },
     async mounted() {
-        this.isLoading = true;
+        /*this.isLoading = true;
         let response = await axios.get("http://localhost:8000/api/films");
+        this.films = response.data;
+        this.isLoading = false;*/
+
+        this.isLoading = true;
+        let response = await axios.get("http://localhost:3001/films");
         this.films = response.data;
         this.isLoading = false;
     },
