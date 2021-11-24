@@ -11,9 +11,9 @@
     </div>
 
     <div class="col-span-5">
-      <img :src="film.img" :alt="film.title" class="w-screen" />
+      <img :src="film.image" :alt="film.title" class="w-screen" />
     </div>
-    <div class="text-sm">
+    <div class="text-sm mt-12">
       {{ film.plot }}
     </div>
 
@@ -35,7 +35,7 @@
             {{ projection.date }}
           </div>
           <div class="">
-            {{ projection.room.name }}
+            Sala: {{ projection.room.name }}
           </div>
           <!--<div class="pr-5">
                     {{ projection.film.title }}
