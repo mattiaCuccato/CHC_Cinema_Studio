@@ -12,4 +12,8 @@ class Room extends Model
     public function projections(){
         return $this->hasMany(Projection::class);
     }
+
+    public function rooms(){
+        return $this->hasMany(Projection::class);
+    }
 }

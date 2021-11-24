@@ -1,11 +1,10 @@
 <?php
 
-use Database\Seeders\ProjectionSeeder;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class InsertProjections extends Migration
+class AddTikets extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +13,9 @@ class InsertProjections extends Migration
      */
     public function up()
     {
-        $seeder = new ProjectionSeeder();
-        $seeder->run();
+        Schema::table('tickets', function (Blueprint $table) {
+            $table->boolean("occupied")->nullable();
+        });
     }
 
     /**
@@ -25,6 +25,8 @@ class InsertProjections extends Migration
      */
     public function down()
     {
-
+        Schema::table('tickets', function (Blueprint $table) {
+            //
+        });
     }
 }
