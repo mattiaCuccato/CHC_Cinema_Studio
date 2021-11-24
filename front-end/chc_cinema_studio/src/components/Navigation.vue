@@ -1,6 +1,6 @@
 <template>
   <div class="flex max-w-screen py-5 bg-yellow-500">
-    <div class="flex text-white">
+    <div class="flex text-white px-14">
       <div
       v-for="link in navLinks"
       :key="link.code"
