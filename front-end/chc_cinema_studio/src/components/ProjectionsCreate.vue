@@ -24,6 +24,15 @@
                 v-model="newProjection[field.code]"
               />
             </div>
+            <div v-if="field.type == 'date'">
+              <input
+                :id="field.code"
+                :placeholder="field.placeholder"
+                class="flex-grow p-2 px-3 rounded focus:outline-none w-full"
+                type="datetime-local"
+                v-model="newProjection[field.code]"
+              />
+            </div>
             <div v-if="field.type == 'checkbox'">
               <input
                 :id="field.code"
@@ -38,8 +47,6 @@
                 :name="field.code"
                 :id="field.code"
                 class="flex-grow p-2 px-3 rounded focus:outline-none w-full h-32"
-                cols="30"
-                rows="10"
                 :placeholder="field.placeholder"
               ></textarea>
             </div>
@@ -48,14 +55,15 @@
                 class="flex-grow p-2 px-3 rounded  focus:outline-none w-full"
                 :name="field.code"
                 :id="field.code"
+                :placeholder="field.placeholder"
                 v-model="newProjection[field.code]"
               >
                 <option
-                  v-for="option in field.options"
-                  :key="option.value"
-                  :value="option.value"
+                  v-for="option in options[field.code]"
+                  :key="option[field.optionField]"
+                  :value="option[field.optionField]"
                 >
-                  {{ option.label }}
+                  {{ option[field.optionLabel] }}
                 </option>
               </select>
             </div>
@@ -101,50 +109,65 @@ import axios from "axios";
 export default {
   data() {
     return {
-      isEdit: false,
+      options: {
+        "film_id": [],
+        "room_id": []
+      },
       newProjection: {
-          /* DA CONFERMARE */ 
-          idFilm,
-          idRoom,
-          date,
+          film_id: 0,
+          room_id: 0,
+          date: "",
       },
       formFields: [
         {
-          code: "title",
-          label: "Titolo Film",
-          type: "text",
-          placeholder:"Inserisci il titolo",
+          code: "film_id",
+          label: "Film della proiezione",
+          type: "select",
+          optionField: "id",
+          optionLabel: "title",
+          placeholder: "Inserisci film della proiezione",
+          required: true,
+        },
+        {
+          code: "room_id",
+          label: "Stanza della proiezione",
+          type: "select",
+          optionField: "id",
+          optionLabel: "name",
+          placeholder: "Inserisci stanza della proiezione",
+          required: true,
+        },
+        {
+          code: "date",
+          label: "Data e orario della proiezione",
+          type: "date",
+          placeholder:"yyyy-mm-gg hh-mm-ss",
           required: true,
         },
       ]
     };
   },
-  async mounted() {
-    if (this.$route.name == "projections_edit") {
-      this.isEdit = true;
-      let projectionId = this.$route.params.id;
-      let response = await axios.get("http://localhost:3000/projections/" + projectionId);
 
-      this.newProjection = response.data;
-      console.log(this.newProjection);
-    }
+  async mounted() {
+      let responseFilms = await axios.get("http://localhost:8000/api/films");
+      this.options.film_id = responseFilms.data;
+      
+
+      let responseRooms = await axios.get("http://localhost:8000/api/rooms");
+      this.options.room_id = responseRooms.data;
+
+
   },
+
   methods: {
     async saveProjection() {
       let response;
 
-      if (this.isEdit) {
-        response = await axios.put(
-          "http://localhost:3000/projections/" + this.$route.params.id,
-          this.newProjection
-        );
-      } else {
-        response = await axios.post("http://localhost:3000/projections", this.newProjection);
-      }
+      response = await axios.post("http://localhost:8000/api/projection/create", this.newProjection);
 
       console.log(response.data);
 
-      this.$router.push("/projections/list");
+      this.$router.push("/films/list");
     }
   },
   computed: {

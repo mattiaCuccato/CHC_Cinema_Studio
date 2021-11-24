@@ -1,7 +1,7 @@
 <template>
   <div class="w-full min-h-screen max-w-screen-md mx-auto flex flex-col">
-    <div class="flex flex-row p-5 items-center">
-      <div class="text-xl font-bold pr-5">
+    <div class="flex flex-row p-5 items-end">
+      <div class="text-4xl font-bold pr-5">
         {{ film.title }}
       </div>
       <div class="pr-5">

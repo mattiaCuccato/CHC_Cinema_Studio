@@ -6,6 +6,8 @@ import FilmsList from '@/components/FilmsList.vue';
 import FilmsDetail from '@/components/FilmsDetail.vue';
 import FilmsCreate from '@/components/FilmsCreate.vue';
 import FilmsProjection from '@/components/FilmsProjection.vue';
+import ProjectionsCreate from '@/components/ProjectionsCreate.vue';
+
 
 
 Vue.config.productionTip = false
@@ -32,6 +34,11 @@ const routes = [
     path: '/films/projection/:id',
     name: "films_projection",
     component: FilmsProjection,
+  },
+  {
+    path: '/films/projection-create',
+    name: "projections_create",
+    component: ProjectionsCreate,
   },
   
   {
