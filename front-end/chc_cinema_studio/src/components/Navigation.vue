@@ -1,17 +1,21 @@
 <template>
-  <div class="flex max-w-screen py-5 bg-yellow-500">
-    <div class="flex text-white px-14">
-      <div
+  <div class="flex max-w-screen py-5 bg-yellow-500 px-14">
+    <div class="flex text-white">
+      <button
       v-for="link in navLinks"
       :key="link.code"
       :class="{
         'text-decoration: underline p-2': link.code == currentRouteName,
       }"
       @click="goToLink(link)"
-      class="mr-8 cursor-pointer px-3 py-1 rounded-full bg-red-600"
+      class="mr-8 cursor-pointer px-3 my-4 rounded-full bg-red-600"
     >
       {{ link.label }}
+    </button>
     </div>
+    <div class="flex flex-col flex-grow items-end">
+      <h1 class="font-bold text-5xl"><span class="text-red-700">C</span>H<span class="text-red-700">C</span></h1>
+      <p>CINEMA STUDIO</p>
     </div>
   </div>
 </template>
