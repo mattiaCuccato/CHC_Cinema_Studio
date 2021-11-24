@@ -1,5 +1,5 @@
 <template>
-  <div class="flex max-w-screen py-5 bg-yellow-500 px-14">
+  <div class="flex max-w-screen py-2 bg-yellow-500 px-14">
     <div class="flex text-white">
       <button
       v-for="link in navLinks"
