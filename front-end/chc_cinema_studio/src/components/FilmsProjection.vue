@@ -1,20 +1,13 @@
 <template>
   <div class="w-full min-h-screen max-w-screen-md mx-auto flex flex-col">
-    <div class="flex">
-      <div class="flex flex-col mt-10"  @click="goBack()">
-        <button class="bg-white text-black rounded px-3 py-1">
+    <div class="grid grid-cols-3 flex my-10">
+      <div class="flex flex-col items-start" @click="goBack()">
+        <button class="bg-white text-black rounded px-3 py-1 mr-auto">
           Indietro
         </button>
       </div>
-    </div>
-    <div class="flex justify-center m-5 px-12 items-center">
-      <div class="flex flex-col font-bold pr-5 text-3xl">
+      <div class="flex flex-col items-center  font-bold pr-5 text-3xl">
         <span>{{ projection.film.title }} </span>
-      </div>
-    </div>
-    <div class="flex justify-center mb-10 px-12 items-center">
-      <div class="flex flex-col pr-5">
-        {{ projection.date }}
       </div>
     </div>
 
@@ -49,6 +42,10 @@
           required
         />
       </div>
+    </div>
+
+    <div class="flex justify-center text-black text-2xl bg-gray-200 rounded-2xl w-2/3 mx-auto border py-3 mt-14">
+      <span>Schermo | Sala: {{projection.room.name}}</span>
     </div>
 
     <div class="flex flex-col items-center mt-12" v-if="projection">
