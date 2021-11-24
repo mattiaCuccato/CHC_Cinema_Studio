@@ -9,31 +9,45 @@ use Illuminate\Http\Request;
 
 class ProjectionController extends Controller
 {
-    // public function create_projection(Request $request) {
+    public function create_projection(Request $request) {
 
+        $newProjectionData = json_decode($request->getContent());
+        $newProjection = new Projection();
+
+        $newProjection-> film_id = $newProjectionData->film_id;
+        $newProjection-> room_id = $newProjectionData->room_id;
+        $newProjection-> date = $newProjectionData->date;
+
+        $newProjection->save();
+        return $newProjection;
+    }
+
+    // public function create_projection($film_id, $room_id, Request $request)
+    // {
     //     $newProjectionData = json_decode($request->getContent());
     //     $newProjection = new Projection();
 
-    //     $newProjection-> film_id = $newProjectionData->film_id;
-    //     $newProjection-> room_id = $newProjectionData->room_id;
-    //     $newProjection-> date = $newProjectionData->date;
+    //     $newProjection->film_id = $film_id;
+    //     $newProjection->room_id = $room_id;
+    //     $newProjection->date = $newProjectionData->date;
 
     //     $newProjection->save();
     //     return $newProjection;
     // }
 
-    public function create_projection($film_id, $room_id, Request $request)
-    {
-        $newProjectionData = json_decode($request->getContent());
-        $newProjection = new Projection();
+    // public function create_projection(Request $request){
+    //     $newProjectionData = json_decode($request->getContent());
+    //     $newProjection = new Projection();
 
-        $newProjection->film_id = $film_id;
-        $newProjection->room_id = $room_id;
-        $newProjection->date = $newProjectionData->date;
+    //     $film = Film::all()->where("id",$newProjectionData->film_id);
+    //     $room = Room::all()->where("id",$newProjectionData->room_id);
 
-        $newProjection->save();
-        return $newProjection;
-    }
+    //     $newProjection->film_id = $film;
+    //     $newProjection->room_id = $room;
+    //     $newProjection->date = $newProjectionData->date;
+
+    //     $newProjection->save();
+    // }
 
     public function view_projections()
     {

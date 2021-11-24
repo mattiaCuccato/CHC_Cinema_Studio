@@ -1,19 +1,21 @@
 <template>
   <div class="w-full min-h-screen max-w-screen-md mx-auto flex flex-col">
-    <div class="flex justify-between m-5 px-12 items-center">
-
-      <div class="flex flex-col font-bold pr-5 text-2xl">
-        <span>{{ projection.film.title }} ({{projection.film.year}})</span>
+    <div class="flex">
+      <div class="flex flex-col mt-10"  @click="goBack()">
+        <button class="bg-gray-600 rounded px-3 py-1">
+          Indietro
+        </button>
       </div>
-
-      <div class="flex flex-col">
+    </div>
+    <div class="flex justify-center m-5 px-12 items-center">
+      <div class="flex flex-col font-bold pr-5 text-3xl">
+        <span>{{ projection.film.title }} </span>
+      </div>
+    </div>
+    <div class="flex justify-center mb-10 px-12 items-center">
+      <div class="flex flex-col pr-5">
         {{ projection.date }}
       </div>
-
-      <div class="flex flex-col text-2xl"  @click="goBack()">
-        🔙
-      </div>
-    
     </div>
 
     <div class="flex justify-between">
@@ -24,6 +26,7 @@
           v-model="newReservation.name_user"
           placeholder="inserisci nome"
           class="text-black px-2 py-2 rounded mt-2"
+          required
         />
       </div>
       <div class="flex flex-col">
@@ -33,6 +36,7 @@
           v-model="newReservation.surname_user"
           placeholder="inserisci cognome"
           class="text-black px-2 py-2 rounded mt-2"
+          required
         />
       </div>
       <div class="flex flex-col">
@@ -42,6 +46,7 @@
           v-model="newReservation.email"
           placeholder="inserisci email"
           class="text-black px-2 py-2 rounded mt-2"
+          required
         />
       </div>
     </div>
@@ -58,7 +63,7 @@
           class="flex p-2 flex-col"
         >
           <div v-if="seatIsAlreadyOccupied(row, col)" class="bg-red-400 px-2">
-            X
+            O
           </div>
           <button
             v-else
@@ -70,13 +75,18 @@
           </button>
         </div>
       </div>
-      <pre>
-        {{ newReservation.tickets }}
-      </pre>
+      <div class="mt-10 text-xl">
+        <span>Posti Selezionati: </span>
+        <span v-for="seat in newReservation.tickets" :key="seat" class="text-xl bold">
+          {{ seat.code }}.
+        </span>
+      </div>
     </div>
-    <button class="px-3 py-1 rounded" @click="saveReservation()">
+    <div class="flex justify-center">
+    <button class="px-3 py-1 rounded bg-red-600 w-3/12 cursor-pointer my-10" @click="saveReservation()">
       Prenota
     </button>
+    </div>
   </div>
 </template>
 

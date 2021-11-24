@@ -27,6 +27,10 @@ export default {
         {
           label: "Inserisci film",
           code: "films_create"
+        },
+        {
+          label: "Inserisci proiezione",
+          code: "projections_create"
         }
 
       ]
