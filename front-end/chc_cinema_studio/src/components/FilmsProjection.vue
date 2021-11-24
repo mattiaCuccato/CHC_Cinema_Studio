@@ -2,7 +2,7 @@
   <div class="w-full min-h-screen max-w-screen-md mx-auto flex flex-col">
     <div class="flex">
       <div class="flex flex-col mt-10"  @click="goBack()">
-        <button class="bg-gray-600 rounded px-3 py-1">
+        <button class="bg-white text-black rounded px-3 py-1">
           Indietro
         </button>
       </div>

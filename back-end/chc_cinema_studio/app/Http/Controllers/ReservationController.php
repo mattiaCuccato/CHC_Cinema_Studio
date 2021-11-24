@@ -6,7 +6,6 @@ use App\Models\Reservation;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class ReservationController extends Controller
 {
@@ -20,11 +19,14 @@ class ReservationController extends Controller
         $newReservation->name_user = $data->name_user;
         $newReservation->surname_user = $data->surname_user;
         $newReservation->projection_id = $data->projection_id;
-        
-        $newReservation->save();
+
+        if(empty($newReservation->email) && empty($newReservation->name_user) && empty($newReservation->surname_user)){
+            Log::info("errore");
+        }else{
+            $newReservation->save();
+        }
 
         foreach($data->tickets as $ticket){
-            Log::info("qualcosa");
             $newTicket = new Ticket();
             $newTicket->row = $ticket->row;
             $newTicket->col = $ticket->col;
