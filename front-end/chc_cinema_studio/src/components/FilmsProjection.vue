@@ -1,13 +1,19 @@
 <template>
   <div class="w-full min-h-screen max-w-screen-md mx-auto flex flex-col">
-    <div class="flex justify-between m-5 px-12">
+    <div class="flex justify-between m-5 px-12 items-center">
+
+      <div class="flex flex-col font-bold pr-5 text-2xl">
+        <span>{{ projection.film.title }} ({{projection.film.year}})</span>
+      </div>
+
       <div class="flex flex-col">
         {{ projection.date }}
       </div>
 
-      <div class="flex flex-col">
-        {{ projection.film.title }}
+      <div class="flex flex-col text-2xl"  @click="goBack()">
+        🔙
       </div>
+    
     </div>
 
     <div class="flex justify-between">
@@ -17,7 +23,7 @@
           type="text"
           v-model="newReservation.name_user"
           placeholder="inserisci nome"
-          class="text-black"
+          class="text-black px-2 py-2 rounded mt-2"
         />
       </div>
       <div class="flex flex-col">
@@ -26,7 +32,7 @@
           type="text"
           v-model="newReservation.surname_user"
           placeholder="inserisci cognome"
-          class="text-black"
+          class="text-black px-2 py-2 rounded mt-2"
         />
       </div>
       <div class="flex flex-col">
@@ -35,7 +41,7 @@
           type="text"
           v-model="newReservation.email"
           placeholder="inserisci email"
-          class="text-black"
+          class="text-black px-2 py-2 rounded mt-2"
         />
       </div>
     </div>
@@ -51,7 +57,7 @@
           :key="indexC"
           class="flex p-2 flex-col"
         >
-          <div v-if="seatIsAlreadyOccupied(row, col)" class="bg-red-400">
+          <div v-if="seatIsAlreadyOccupied(row, col)" class="bg-red-400 px-2">
             X
           </div>
           <button
@@ -134,10 +140,10 @@ export default {
 
       if (foundTicket == -1) {
         // If not => green-400
-        return "bg-green-400";
+        return "bg-green-400 px-2";
       } else {
         // If seat is selected => red-400
-        return "bg-yellow-400";
+        return "bg-yellow-400 px-2";
       }
     },
     async saveReservation() {
@@ -154,6 +160,11 @@ export default {
       this.$router.push("/films/list");
     },
     selectSeat(row, col) {
+      var letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+
+      let rowLetter = letters[(row-1)]
+      let code = rowLetter + "" + col;
+
       // Check if seat is alteady selected
       let foundTicket = this.newReservation.tickets.findIndex((ticket) => {
         return ticket.row == row && ticket.col == col;
@@ -165,35 +176,17 @@ export default {
         this.newReservation.tickets.push({
           row: row,
           col: col,
+          code: code,
         });
       } else {
         // If selected, then de select it
         this.newReservation.tickets.splice(foundTicket, 1);
       }
     },
-    async mapPosition(indexC, indexR) {
-      var letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+    goBack(){
+      this.$router.back();
+    }
 
-      let rowLetter = letters[indexC]
-      let row = indexC + 1;
-      let col = indexR + 1;
-      let code = rowLetter + "" + col;
-
-      var position = { code: code, row: row, col: col };
-
-      if (this.ticketsCodes.includes(code) == true) {
-        let index = this.ticketsCodes.indexOf(code);
-        this.ticketsCodes.splice(index, 1);
-        this.newReservation.tickets.splice(index, 1);
-      } else {
-        this.ticketsCodes.push(code);
-        this.newReservation.tickets.push(position);
-      }
-
-      console.log(position);
-      console.log(this.newReservation.tickets);
-      console.log(this.ticketsCodes);
-    },
   },
 };
 </script>

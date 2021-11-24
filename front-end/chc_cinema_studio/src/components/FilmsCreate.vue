@@ -112,7 +112,7 @@ export default {
         plot: "",
         rating: "",
         poster: "",
-        img: ""
+        image: ""
       },
       formFields: [
         {
@@ -172,7 +172,7 @@ export default {
           required: true,
         },
         {
-          code: "img",
+          code: "image",
           label: "Immagine",
           type: "text",
           placeholder:"Inserisci l'url dell'immagine",
@@ -192,8 +192,7 @@ export default {
     if (this.$route.name == "films_edit") {
       this.isEdit = true;
       let filmId = this.$route.params.id;
-      let response = await axios.get("http://localhost:3001/films/" + filmId);
-
+      let response = await axios.get("http://localhost:8000/api/film/create" + filmId);
       this.newFilm = response.data;
       console.log(this.newFilm);
     }
@@ -202,14 +201,7 @@ export default {
     async saveFilm() {
       let response;
 
-      if (this.isEdit) {
-        response = await axios.put(
-          "http://localhost:3001/films/" + this.$route.params.id,
-          this.newFilm
-        );
-      } else {
-        response = await axios.post("http://localhost:3001/films", this.newFilm);
-      }
+      response = await axios.post("http://localhost:8000/api/film/create", this.newFilm);
 
       console.log(response.data);
 
