@@ -1,15 +1,17 @@
 <template>
-  <div class="flex max-w-screen-md mx-auto py-5">
-    <div
+  <div class="flex max-w-screen py-5 bg-yellow-500">
+    <div class="flex text-white">
+      <div
       v-for="link in navLinks"
       :key="link.code"
       :class="{
         'text-decoration: underline p-2': link.code == currentRouteName,
       }"
       @click="goToLink(link)"
-      class="mr-8 cursor-pointer px-3 py-1 rounded-full"
+      class="mr-8 cursor-pointer px-3 py-1 rounded-full bg-red-600"
     >
       {{ link.label }}
+    </div>
     </div>
   </div>
 </template>
