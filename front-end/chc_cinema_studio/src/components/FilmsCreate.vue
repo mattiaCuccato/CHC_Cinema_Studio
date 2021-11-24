@@ -10,9 +10,9 @@
         >
           <label
             :for="field.code"
-            class="flex items-center font-bold text-white text-xl"
+            class="flex items-center justify-end font-bold text-white text-xl mb-4"
           >
-            {{ field.label }}
+            {{ field.label }}:
           </label>
           <div class="flex-grow text-black">
             <div v-if="field.type == 'text'">
@@ -80,7 +80,7 @@
         </div>
       </div>
     </div>
-    <div class="py-5 text-xl">
+    <div class="flex items-center justify-center py-5 text-xl">
       <button
         :disabled="!isFormValid"
         :class="{
