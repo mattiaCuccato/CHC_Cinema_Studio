@@ -1,6 +1,6 @@
 <template>
   <div class="px-12 bg-black">
-    <h1 class="text-center text-2xl mb-5 font-bold">Inserisci una nuova Proiezione</h1>
+    <h1 class="text-center text-2xl mb-5 font-bold mt-16">Inserisci una nuova Proiezione</h1>
     <div class="flex">
       <div class="flex flex-col flex-grow">
         <div
@@ -10,9 +10,9 @@
         >
           <label
             :for="field.code"
-            class="flex items-center font-bold text-white text-xl"
+            class="flex items-center justify-end font-bold text-white text-xl"
           >
-            {{ field.label }}
+            {{ field.label }}:
           </label>
           <div class="flex-grow text-black">
             <div v-if="field.type == 'text'">
@@ -88,7 +88,7 @@
         </div>
       </div>
     </div>
-    <div class="py-5 text-xl">
+    <div class="flex items-center justify-center py-5 text-xl">
       <button
         :disabled="!isFormValid"
         :class="{

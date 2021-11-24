@@ -1,6 +1,6 @@
 <template>
   <div class="px-12 bg-black">
-    <h1 class="text-center text-2xl mb-5 font-bold">Inserisci un nuovo Film</h1>
+    <h1 class="text-center text-2xl mb-5 font-bold  mt-16">Inserisci un nuovo Film</h1>
     <div class="flex">
       <div class="flex flex-col flex-grow">
         <div
